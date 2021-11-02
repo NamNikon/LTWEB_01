@@ -5,6 +5,14 @@ require_once 'functions.php';
 $title = 'Home';
 $error = "";
 
+$image_default = "https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg";
+
+if ($curentUser && $curentUser['avatar']) {
+    $image_default = 'assets/images/' . $curentUser['avatar'];
+}
+
+
+
 if (isset($_POST['content'])) {
     if ($_POST['content'] == "") {
         $error = "Not content to post!";
@@ -55,7 +63,7 @@ if (isset($_POST['content'])) {
         '<div class="d-flex">
     <div class="flex-shrink-0">
         <img class="img-thumbnail img-poster"
-            src="https://media.tarkett-image.com/large/TH_24567080_24594080_24596080_24601080_24563080_24565080_24588080_001.jpg"
+            src=' . $image_default . '
             alt="">
     </div>
     <div class="flex-grow-1 ms-3">

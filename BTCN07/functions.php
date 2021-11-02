@@ -59,3 +59,10 @@ function createPoster($uid, $content)
     $stmt = $db->prepare("INSERT INTO poster (uid, content) VALUES (?, ?)");
     $stmt->execute(array($uid, $content));
 }
+
+function updateAvatar($uid, $image)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE users SET avatar = ? WHERE id = ?");
+    $stmt->execute(array($image, $uid));
+}
