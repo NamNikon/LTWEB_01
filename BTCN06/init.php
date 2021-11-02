@@ -18,3 +18,6 @@ $db = new PDO($dsn, $userdb, $passdb);
 require_once 'functions.php';
 
 $curentUser = getCurrentUser();
+
+
+$userPoster = getAllPoster($curentUser["id"]);
