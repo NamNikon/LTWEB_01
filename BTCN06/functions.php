@@ -42,19 +42,3 @@ function getCurrentUser()
     }
     return null;
 }
-
-//get all posters from
-function getAllPoster($uid) {
-    global $db;
-    $stmt = $db->prepare("SELECT * FROM poster WHERE uid = ?");
-    $stmt->execute(array($uid));
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function createPoster($uid, $content)
-{
-    global $db;
-    $stmt = $db->prepare("INSERT INTO poster (uid, content) VALUES (?, ?)");
-    $stmt->execute(array($uid, $content));
-}

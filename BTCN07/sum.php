@@ -17,7 +17,7 @@ if (isset($_POST['numberOne']) && isset($_POST['numberTwo'])) {
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    
+
     <?php if (isset($result)) : ?>
         <div class="alert alert-primary" role="alert">
             Result <?php echo $a ?> + <?php echo $b ?> is: <?php echo $result; ?>
@@ -34,6 +34,7 @@ if (isset($_POST['numberOne']) && isset($_POST['numberTwo'])) {
                     <input type="number" class="form-control" name="numberTwo">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     <?php endif; ?>
 <?php else : ?>
