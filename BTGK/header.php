@@ -20,9 +20,6 @@
                 <li class="nav-item <?php echo $title == 'Home' ? 'action' : ''; ?>">
                     <a class="nav-link" href="index.php">Home<?php echo $title == 'Home' ? '<span class="sr-only">(current)</span>' : ''; ?></a>
                 </li>
-                <li class="nav-item <?php echo $title == 'Plus two numbers' ? 'action' : ''; ?>">
-                    <a class="nav-link" href="sum.php">Plus two numbers<?php echo $title == 'Plus two numbers' ? '<span class="sr-only">(current)</span>' : ''; ?></a>
-                </li>
                 <?php if ($curentUser) : ?> 
                     <li class="nav-item <?php echo $title == 'Logout' ? 'action' : ''; ?>">
                         <a class="nav-link" href="logout.php">Logout</a>
