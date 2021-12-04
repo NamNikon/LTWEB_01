@@ -3,11 +3,11 @@ require_once 'init.php';
 
 $title = 'Login';
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['username'];
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = findUserByUsername($username);
+    $user = findUserByEmail($email);
     if (!$user) {
         $error = 'User not found!';
     } else {
@@ -16,6 +16,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             
         } else {
             $_SESSION['userID'] = $user['id'];
+            $_SESSION['email'] = $user['id'];
+            $_SESSION['password'] = $user['id'];
             header('Location: index.php');
             exit();
         }
@@ -32,8 +34,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <?php else : ?>
     <form action="login.php" method="POST">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="form-group">
             <div class="form-group">

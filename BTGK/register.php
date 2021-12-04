@@ -5,21 +5,21 @@ $title = 'Register';
 
 $filejson = 'user.json';
 
-if (isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
     $name = $_POST['name'];
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $re_password = $_POST['re_password'];
 
-    $user = findUserByUsername($username);
+    $user = findUserByEmail($email);
 
     if ($user) {
-        $error = 'This username already exsts! Please login with another username!';
+        $error = 'This email already exsts! Please login with another email!';
     } else {
         if ($password != $re_password) {
             $error = 'Invalid veritify! Please re-enter!';
         } else {
-            $user =  createUser($name, $username, password_hash($password, PASSWORD_DEFAULT));
+            $user =  createUser($name, $email, password_hash($password, PASSWORD_DEFAULT));
             $_SESSION['userID'] = $user['id'];
             header('Location: index.php');
             exit();
@@ -41,8 +41,8 @@ if (isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password
             <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="username" name="username">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="form-group">
             <div class="form-group">

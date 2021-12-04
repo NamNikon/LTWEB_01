@@ -3,19 +3,19 @@ require_once 'init.php';
 
 $title = 'Forgot password';
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['username'];
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $re_password = $_POST['re_password'];
 
-    $user = findUserByUsername($username);
+    $user = findUserByEmail($email);
     if (!$user) {
         $error = 'User not found!';
     } else {
         if ($password != $re_password)
             $error = 'This password not invalid! Please re-enter!';
         else {
-            $user = updatePassword($username, password_hash($password, PASSWORD_DEFAULT));
+            $user = updatePassword($email, password_hash($password, PASSWORD_DEFAULT));
             $_SESSION['userID'] = $user['id'];
             header('Location: index.php');
             exit();
@@ -33,8 +33,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <?php else : ?>
     <form action="forgot_password.php" method="POST">
         <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="username" name="username">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="form-group">
             <div class="form-group">

@@ -20,6 +20,14 @@ function findUserByUsername($username)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function findUserByEmail($email)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM users WHERE email=?");
+    $stmt->execute(array($email));
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function createUser($name, $password, $username)
 {
     global $db;

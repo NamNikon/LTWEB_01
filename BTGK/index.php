@@ -8,7 +8,7 @@ $title = 'Home';
 
 <?php if ($curentUser) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Hello I'm Trung Nam <?php echo $curentUser['name']; ?>!
+        Hello <?php echo $curentUser['name']; ?>!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
