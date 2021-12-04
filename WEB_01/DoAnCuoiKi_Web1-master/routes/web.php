@@ -18,5 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/dashboard', function () {
-    return view('admin/dashboard');
+    return view('admin/mainLayout');
 });
+
+Route::get('/admin/user-manage', function () {
+    return view('admin/mainLayout');
+});
+
